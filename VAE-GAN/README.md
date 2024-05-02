@@ -5,6 +5,7 @@ VAE-GAN
 ### Original Code  
 #### [VAE-GAN-PYTORCH](https://github.com/rishabhd786/VAE-GAN-PYTORCH?source=post_page-----8f9db4aeb7a2-------------------------------- "游標顯示")
 
- [架構](VAE-GAN.png)  
+
+![](VAE-GAN.png)  
 
 
