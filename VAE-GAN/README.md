@@ -39,7 +39,7 @@ VAE-GAN
 > 在dataloader改好資料路徑後依需要training、testing或生heatmap執行
 > 
 ```python
-python main.py
+> python main.py
 ``` 
 
 
