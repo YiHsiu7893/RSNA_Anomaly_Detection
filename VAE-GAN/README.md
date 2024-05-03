@@ -40,6 +40,12 @@ VAE-GAN
 > 
 > ```python
 > python main.py
+> ```
+> > ```python
+> python testing.py
+> ```
+> > ```python
+> python heatmap.py
 > ``` 
 
 
