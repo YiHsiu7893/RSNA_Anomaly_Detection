@@ -10,7 +10,6 @@ VAE-GAN
 
 ### 各檔案描述
 > [dataloader.py](dataloader.py "游標顯示")
->
 >> 處理資料，預設為會調整成size 64*64的圖片，batch大小也為64，會從csv檔中讀圖片的full path與label， _class CustomDataset(Dataset)_ 有兩種，分別是讀dicom檔的與讀png或jpg。
 >> 
 >> 不管training、testing還是生heatmap，都是到dataloader中改資料的路徑。
