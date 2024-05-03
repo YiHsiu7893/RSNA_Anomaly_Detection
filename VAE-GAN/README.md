@@ -12,11 +12,12 @@ VAE-GAN
 > [dataloader.py](dataloader.py "游標顯示")
 >
 >> 處理資料，預設為會調整成size 64*64的圖片，batch大小也為64，會從csv檔中讀圖片的full path與label， _class CustomDataset(Dataset)_ 有兩種，分別是讀dicom檔的與讀png或jpg。
+>> 
 >> 不管training、testing還是生heatmap，都是到dataloader中改資料的路徑。
 >>  
 
 > [heatmap.py](heatmap.py "游標顯示")
->> 生成reconstructed image和heatmap，要生成的圖片路徑要去dataloader改。
+>> 生成reconstructed image和heatmap，18行有改weight路徑的地方，要生成的圖片路徑要去dataloader改。
 >>  
 
 > [main.py](main.py "游標顯示")
@@ -26,7 +27,7 @@ VAE-GAN
 >> 就是model的架構。
 >> 
 > [testing.py](testing.py "游標顯示")
->> testing及繪製ROC curve，testing data的路徑要去dataloader改。
+>> testing及繪製ROC curve，20行有改weight路徑的地方，testing data的路徑要去dataloader改。
 >> 
 >[utils.py](utios.py "游標顯示")  
 >> 其他作者自己定義的function。
