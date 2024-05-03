@@ -41,12 +41,15 @@ VAE-GAN
 > ```python
 > python main.py
 > ```
-> > ```python
+> 
+> ```python
 > python testing.py
 > ```
-> > ```python
+> 
+>  ```python
 > python heatmap.py
-> ``` 
+> ```
+>  
 
 
 
