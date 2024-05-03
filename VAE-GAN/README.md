@@ -49,7 +49,8 @@ VAE-GAN
 >  ```python
 > python heatmap.py
 > ```
->  
+>  (原始的code是說用python3，但我們用python3跑不了反而是python跑得了)
+> 
 
 
 
