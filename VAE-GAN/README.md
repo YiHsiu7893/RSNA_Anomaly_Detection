@@ -34,7 +34,13 @@ VAE-GAN
 >> 
 > [train過50個epoch的權重](https://drive.google.com/file/d/1TlYe8T2GJ6QwU5NtXP88F8b2J1Ko9we7/view?usp=sharing "游標顯示") (image size:64*64,batch size:64)
 >> 太大了所以丟雲端。
->> 
+>>
+### 使用方法
+> 在dataloader改好資料路徑後依需要training、testing或生heatmap執行
+> '''程式類型
+> python main.py
+> '''
+> 
 
 
 
