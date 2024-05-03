@@ -6,15 +6,18 @@ VAE-GAN
 > #### [VAE-GAN-PYTORCH](https://github.com/rishabhd786/VAE-GAN-PYTORCH?source=post_page-----8f9db4aeb7a2-------------------------------- "游標顯示")
 
 ### VAE-GAN的架構圖
->![](VAE-GAN.png)  
+>![](pictures/VAE-GAN.png)  
 
 ### 各檔案描述
 > [dataloader.py](dataloader.py "游標顯示")
 >> 處理資料，預設為會調整成size 64*64的圖片，batch大小也為64，會從csv檔中讀圖片的full path與label， _class CustomDataset(Dataset)_ 有兩種，分別是讀dicom檔的與讀png或jpg。
 >> 
 >> 不管training、testing還是生heatmap，都是到dataloader中改資料的路徑。
->>  
-> [heatmap.py](heatmap.py "游標顯示")
+>>
+>> 儲存圖片路徑及標籤的csv檔格式
+>> ![](pictures/dataset_csv.png)
+>> 
+> [heatmap.py](heatmap.py "游標顯示")  
 >> 生成reconstructed image和heatmap，18行有改weight路徑的地方，要生成的圖片路徑要去dataloader改。
 >>  
 > [main.py](main.py "游標顯示")
