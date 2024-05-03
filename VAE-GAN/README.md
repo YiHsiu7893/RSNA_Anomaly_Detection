@@ -29,7 +29,7 @@ VAE-GAN
 > [testing.py](testing.py "游標顯示")
 >> testing及繪製ROC curve，20行有改weight路徑的地方，testing data的路徑要去dataloader改。
 >> 
->[utils.py](utios.py "游標顯示")  
+>[utils.py](utils.py "游標顯示")  
 >> 其他作者自己定義的function。
 >> 
 > [train過50個epoch的權重](https://drive.google.com/file/d/1TlYe8T2GJ6QwU5NtXP88F8b2J1Ko9we7/view?usp=sharing "游標顯示") (image size:64*64,batch size:64)
