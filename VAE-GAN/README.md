@@ -38,8 +38,8 @@ VAE-GAN
 ### 使用方法
 > 在dataloader改好資料路徑後依需要training、testing或生heatmap執行
 > 
-```python
-> python main.py
+> ```python
+python main.py
 ``` 
 
 
