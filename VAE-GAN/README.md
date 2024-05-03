@@ -14,11 +14,9 @@ VAE-GAN
 >> 
 >> 不管training、testing還是生heatmap，都是到dataloader中改資料的路徑。
 >>  
-
 > [heatmap.py](heatmap.py "游標顯示")
 >> 生成reconstructed image和heatmap，18行有改weight路徑的地方，要生成的圖片路徑要去dataloader改。
 >>  
-
 > [main.py](main.py "游標顯示")
 >> 就是train的過程，18行有改weight路徑的地方，training data的路徑要去dataloader改。
 >> 
