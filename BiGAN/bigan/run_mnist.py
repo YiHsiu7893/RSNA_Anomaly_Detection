@@ -355,30 +355,31 @@ def train_and_test(nb_epochs, weight, method, degree, random_seed, label):
         else:
             for filename in os.listdir('data/visCXR/ori'):
                 # Check if the file is an image
-                image_path = os.path.join('data/visCXR/ori', filename)
+                if filename.endswith(".jpg") or filename.endswith(".png") or filename.endswith(".jpeg"):
+                    image_path = os.path.join('data/visCXR/ori', filename)
 
-                target = open_img(image_path)
-                target = target.reshape(-1, 64, 64, 1)  # reshape以符合規定格式
-                feed_dict = {input_pl: target, is_training_pl:False} # 這行的意思是以target作為input_pl
+                    target = open_img(image_path)
+                    target = target.reshape(-1, 64, 64, 1)  # reshape以符合規定格式
+                    feed_dict = {input_pl: target, is_training_pl:False} # 這行的意思是以target作為input_pl
 
-                reconstructed_image = sess.run(reconstruct, feed_dict=feed_dict)    # 把feed_dict送去執行，並指定傳回reconstruct的部分
+                    reconstructed_image = sess.run(reconstruct, feed_dict=feed_dict)    # 把feed_dict送去執行，並指定傳回reconstruct的部分
 
-                # 正規化到[0, 1]區間
-                reconstructed_image = (reconstructed_image+1.0)/2.0
-                # 像素值還原到[0, 255]
-                reconstructed_image = (reconstructed_image[0]*255).astype(np.uint8)
-                cv2.imwrite(f'data/visCXR/rec/rec_{os.path.splitext(filename)[0]}.jpg', reconstructed_image)
-                """
-                # target也做一樣的還原步驟
-                target = (target+1.0)/2.0
-                target = (target[0]*255).astype(np.uint8)
-                #cv2.imwrite(f"ori.jpg", target)
+                    # 正規化到[0, 1]區間
+                    reconstructed_image = (reconstructed_image+1.0)/2.0
+                    # 像素值還原到[0, 255]
+                    reconstructed_image = (reconstructed_image[0]*255).astype(np.uint8)
+                    cv2.imwrite(f'data/visCXR/rec/rec_{os.path.splitext(filename)[0]}.jpg', reconstructed_image)
+                    """
+                    # target也做一樣的還原步驟
+                    target = (target+1.0)/2.0
+                    target = (target[0]*255).astype(np.uint8)
+                    #cv2.imwrite(f"ori.jpg", target)
 
-                # 串在一起印出來
-                concatenated_image = cv2.hconcat([target, reconstructed_image])
-                
-                cv2.imwrite("result.jpg", concatenated_image)
-                """
+                    # 串在一起印出來
+                    concatenated_image = cv2.hconcat([target, reconstructed_image])
+                    
+                    cv2.imwrite("result.jpg", concatenated_image)
+                    """
 
 
 def run(nb_epochs, weight, method, degree, label, random_seed=42):
