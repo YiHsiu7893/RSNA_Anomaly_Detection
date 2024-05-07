@@ -26,6 +26,6 @@ and run `python main.py bigan mnist run --nb_epochs=0 --label=1 --w=<float betwe
   
 The result will in `data/visCXR/rec`
 
-## Generate Heatmap
+## Heatmap Generation
     python plot_heatmap.py
 The result will in `data/visCXR/heatmap`
