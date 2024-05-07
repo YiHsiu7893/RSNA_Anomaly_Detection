@@ -368,7 +368,7 @@ def train_and_test(nb_epochs, weight, method, degree, random_seed, label):
                     reconstructed_image = (reconstructed_image+1.0)/2.0
                     # 像素值還原到[0, 255]
                     reconstructed_image = (reconstructed_image[0]*255).astype(np.uint8)
-                    cv2.imwrite(f'data/visCXR/rec/rec_{os.path.splitext(filename)[0]}.jpg', reconstructed_image)
+                    cv2.imwrite(f'data/visCXR/rec/{filename}', reconstructed_image)
                     """
                     # target也做一樣的還原步驟
                     target = (target+1.0)/2.0
