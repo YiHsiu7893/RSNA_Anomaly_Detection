@@ -16,11 +16,14 @@ and run `python data/makedata.py`
 ## Training
     python main.py bigan mnist run --nb_epochs=<number_epochs> --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>  
 To reproduce the results of the paper, please use w=0.1 (as in the original AnoGAN paper which gives a weight of 0.1 to the discriminator loss), d=1 for the feature matching loss.  
+  
 The result will in `results/bigan/mnist/fm/{w}`
 
 ## Image Reconstruction
 Put your images in `data/visCXR/ori`  
-and run `python main.py bigan mnist run --nb_epochs=0 --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>`
+  
+and run `python main.py bigan mnist run --nb_epochs=0 --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>`  
+  
 The result will in `data/visCXR/rec`
 
 ## Generate Heatmap
