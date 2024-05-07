@@ -6,7 +6,7 @@ VAE-GAN
 > #### [VAE-GAN-PYTORCH](https://github.com/rishabhd786/VAE-GAN-PYTORCH?source=post_page-----8f9db4aeb7a2-------------------------------- "游標顯示")
 
 ### VAE-GAN的架構圖
->![](pictures/VAE-GAN.png)  
+><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/VAE-GAN/pictures/VAE-GAN.png" width=60% height=60%>
 
 ### 各檔案描述
 > [dataloader.py](dataloader.py "游標顯示")
