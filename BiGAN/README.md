@@ -5,6 +5,7 @@
 * github: [Efficient-GAN-Anomaly-Detection](https://github.com/houssamzenati/Efficient-GAN-Anomaly-Detection/tree/master "游標顯示")
 
 ## Architechture
+<img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/BiGAN/pic/BiGAN.jpg" width=60% height=60%>
 
 ## Installation
     pip install -r requirements.txt
