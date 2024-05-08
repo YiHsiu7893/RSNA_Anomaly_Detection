@@ -24,7 +24,7 @@ python data/makedata.py
 ## Training
 Run:  
 ```
-python main.py bigan mnist run --nb_epochs=<number_epochs> --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>
+python main.py bigan mnist run --nb_epochs=<number_epochs> --label=1 --w=<float between 0 and 1> --d=<int>
 ```
   
 To reproduce the results of the paper, please use w=0.1 (as in the original AnoGAN paper which gives a weight of 0.1 to the discriminator loss), d=1 for the feature matching loss.  
@@ -36,7 +36,7 @@ Put your images in `data/visCXR/ori`.
   
 Run:  
 ```
-python main.py bigan mnist run --nb_epochs=0 --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>
+python main.py bigan mnist run --nb_epochs=0 --label=1
 ```
   
 The result will be saved at `data/visCXR/rec`.
