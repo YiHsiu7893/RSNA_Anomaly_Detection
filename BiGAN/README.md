@@ -8,25 +8,43 @@
 <img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/BiGAN/pic/BiGAN.jpg" width=60% height=60%>
 
 ## Installation
-    pip install -r requirements.txt
+Run:  
+```
+pip install -r requirements.txt
+```
 
 ## Preparation
-Put **training_data.csv**, **testing_data.csv** and **valid_data.csv** into `data/`  
-and run `python data/makedata.py`
+Put **training_data.csv**, **testing_data.csv** and **valid_data.csv** into `data/`.  
+  
+Run:  
+```
+python data/makedata.py
+```
 
 ## Training
-    python main.py bigan mnist run --nb_epochs=<number_epochs> --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>  
+Run:  
+```
+python main.py bigan mnist run --nb_epochs=<number_epochs> --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>
+```
+  
 To reproduce the results of the paper, please use w=0.1 (as in the original AnoGAN paper which gives a weight of 0.1 to the discriminator loss), d=1 for the feature matching loss.  
   
-The result will in `results/bigan/mnist/fm/{w}`
+The result will be saved at `results/bigan/mnist/fm/{w}`.
 
 ## Image Reconstruction
-Put your images in `data/visCXR/ori`  
+Put your images in `data/visCXR/ori`.  
   
-and run `python main.py bigan mnist run --nb_epochs=0 --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>`  
+Run:  
+```
+python main.py bigan mnist run --nb_epochs=0 --label=1 --w=<float between 0 and 1> --m='fm' --d=<int> --rd=<int>
+```
   
-The result will in `data/visCXR/rec`
+The result will be saved at `data/visCXR/rec`.
 
 ## Heatmap Generation
-    python plot_heatmap.py
-The result will in `data/visCXR/heatmap`
+Run:  
+```
+python plot_heatmap.py
+```
+  
+The result will be saved at `data/visCXR/heatmap`.
