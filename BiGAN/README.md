@@ -15,6 +15,7 @@ pip install -r requirements.txt
 
 ## Preparation
 Put **training_data.csv**, **testing_data.csv** and **valid_data.csv** into `data/`.  
+The .csv file format is as follows (the same as VAE-GAN).
   
 Run:  
 ```
