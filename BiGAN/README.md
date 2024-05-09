@@ -13,10 +13,11 @@ Run:
 pip install -r requirements.txt
 ```
 
-## Preparation
+## Data Preparation
 Put **training_data.csv**, **testing_data.csv** and **valid_data.csv** into `data/`.  
+
 The .csv file format is as follows (the same as VAE-GAN).
-<img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/VAE-GAN/pictures/VAE-GAN.png" width=60% height=60%>
+<img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/VAE-GAN/pictures/dataset_csv.png" width=80% height=80%>
   
 Run:  
 ```
@@ -31,7 +32,7 @@ python main.py bigan mnist run --nb_epochs=<number_epochs> --label=1 --w=<float 
   
 To reproduce the results of the paper, please use w=0.1 (as in the original AnoGAN paper which gives a weight of 0.1 to the discriminator loss), d=1 for the feature matching loss.  
   
-Images of ROC curve and distribution histograms will be saved at `results/bigan/mnist/fm/{w}`.
+The images of ROC curve and distribution histograms will be saved at `results/bigan/mnist/fm/{w}`.
 
 ## Image Reconstruction
 Put your images in `data/visCXR/ori`.  
@@ -41,7 +42,7 @@ Run:
 python main.py bigan mnist run --nb_epochs=0 --label=1
 ```
   
-Reconstructed images will be saved at `data/visCXR/rec`.
+The reconstructed images will be saved at `data/visCXR/rec`.
 
 ## Heatmap Generation
 Run:  
@@ -49,4 +50,4 @@ Run:
 python plot_heatmap.py
 ```
   
-Heatmap will be saved at `data/visCXR/heatmap`.
+The heatmap will be saved at `data/visCXR/heatmap`.
