@@ -29,7 +29,7 @@ python main.py bigan mnist run --nb_epochs=<number_epochs> --label=1 --w=<float 
   
 To reproduce the results of the paper, please use w=0.1 (as in the original AnoGAN paper which gives a weight of 0.1 to the discriminator loss), d=1 for the feature matching loss.  
   
-The result will be saved at `results/bigan/mnist/fm/{w}`.
+Images of ROC curve and distribution histograms will be saved at `results/bigan/mnist/fm/{w}`.
 
 ## Image Reconstruction
 Put your images in `data/visCXR/ori`.  
@@ -39,7 +39,7 @@ Run:
 python main.py bigan mnist run --nb_epochs=0 --label=1
 ```
   
-The result will be saved at `data/visCXR/rec`.
+Reconstructed images will be saved at `data/visCXR/rec`.
 
 ## Heatmap Generation
 Run:  
@@ -47,4 +47,4 @@ Run:
 python plot_heatmap.py
 ```
   
-The result will be saved at `data/visCXR/heatmap`.
+Heatmap will be saved at `data/visCXR/heatmap`.
