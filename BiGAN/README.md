@@ -16,6 +16,7 @@ pip install -r requirements.txt
 ## Preparation
 Put **training_data.csv**, **testing_data.csv** and **valid_data.csv** into `data/`.  
 The .csv file format is as follows (the same as VAE-GAN).
+<img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/VAE-GAN/pictures/VAE-GAN.png" width=60% height=60%>
   
 Run:  
 ```
