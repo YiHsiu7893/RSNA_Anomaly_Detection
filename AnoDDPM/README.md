@@ -12,5 +12,30 @@ AnoDDPM
 > [makenpy.py](makenpy.py "游標顯示")
 >> 資料處理，從csv檔中讀取圖片的路徑並讀取圖片，並將所有圖片轉為後續訓練、測試使用的.npy檔，因我們的原始圖片是dicom檔，若有要讀取其他格式的圖片要修改程式碼。
 
-> [makenpy.py](makenpy.py "游標顯示")
->> 資料處理，從csv檔中讀取圖片的路徑並讀取圖片，並將所有圖片轉為後續訓練、測試使用的.npy檔，因我們的原始圖片是dicom檔，若有要讀取其他格式的圖片要修改程式碼。
+> [dataset.py](dataset.py "游標顯示")
+>>
+
+> [detection.py](dataset.py "游標顯示")
+>> 
+
+> [diffusion_training.py](diffusion_training.py "游標顯示")
+>> 
+
+> [evaluation.py](evaluation.py "游標顯示")
+>> 
+
+> [GaussianDiffusion.py](GaussianDiffusion.py "游標顯示")
+>> 
+
+> [graphs.py](graphs.py "游標顯示")
+>> 
+
+> [simplex.py](simplex.py "游標顯示")
+>>
+
+> [UNet.py](UNet.py "游標顯示")
+>> 
+
+> [helpers.py](helpers.py "游標顯示")
+>> 
+
