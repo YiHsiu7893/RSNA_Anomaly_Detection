@@ -42,10 +42,10 @@ AnoDDPM
 ### 使用方法
 > training
 >>使用 python diffusion_training.py [args number]，例如：
-> 
-> ```python
-> python diffusion_training.py 28
-> ```
+>> 
+>> ```python
+>> python diffusion_training.py 28
+>> ```
 > 
 > ```python
 > python testing.py
