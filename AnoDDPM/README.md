@@ -6,4 +6,4 @@ AnoDDPM
 > #### [AnoDDPM](https://github.com/Julian-Wyatt/AnoDDPM "游標顯示")
 > 
 ### Diffusion Model的架構圖
-><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/VAE-GAN/pictures/VAE-GAN.png" width=60% height=60%>
+><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/AnoDDPM/pictures/diffusion_model_flow_chart.png" width=60% height=60%>
