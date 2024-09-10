@@ -13,19 +13,19 @@ AnoDDPM
 >> 資料處理，從csv檔中讀取圖片的路徑並讀取圖片，並將所有圖片轉為後續訓練、測試使用的.npy檔，因我們的原始圖片是dicom檔，若有要讀取其他格式的圖片要修改程式碼。
 
 > [dataset.py](dataset.py "游標顯示")
->>設定及讀取datasets，在351行的init_datasets中可更改要使用的datasets。
+>>設定及讀取datasets，在351行的init_datasets中可更改要使用的datasets，相較於原版的loader使用cycle並限制每個epoch train的data數量，我們有新增了一個testing_dataset_loadery在375行，使testing時會保證test完所有testing dataset中的所有data。
 
 > [detection.py](dataset.py "游標顯示")
 >> 
 
 > [diffusion_training.py](diffusion_training.py "游標顯示")
->> 
+>> training的過程。
 
 > [evaluation.py](evaluation.py "游標顯示")
->> 
+>> testing的過程。
 
 > [GaussianDiffusion.py](GaussianDiffusion.py "游標顯示")
->> 
+>> Diffusion Model的架構。
 
 > [graphs.py](graphs.py "游標顯示")
 >> 
@@ -37,7 +37,7 @@ AnoDDPM
 >> 
 
 > [helpers.py](helpers.py "游標顯示")
->>
+>>作者自定義的functions，26行的load_checkpoint與51行的load_parameters終能調整要使用哪份權重。
 
 ### 使用方法
 > training
