@@ -22,7 +22,7 @@ AnoDDPM
 >> training的過程。
 
 > [evaluation.py](evaluation.py "游標顯示")
->> testing的過程。
+>> testing的過程，改為計算error score與繪製ROC curve為主。
 
 > [GaussianDiffusion.py](GaussianDiffusion.py "游標顯示")
 >> Diffusion Model的架構。
@@ -46,14 +46,11 @@ AnoDDPM
 >> ```python
 >> python diffusion_training.py 28
 >> ```
-> 
-> ```python
-> python testing.py
-> ```
-> 
->  ```python
-> python heatmap.py
-> ```
+> testing
+>>使用 python evaluation.py [args number]，例如：
+>> ```python
+>> python evaluation.py 28
+>> ```
 >  (原始的code是說用python3，但我們用python3跑不了反而是python跑得了)
 > 
 
