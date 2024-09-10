@@ -23,7 +23,7 @@ AnoDDPM
 >> training的過程。
 
 > [evaluation.py](evaluation.py "游標顯示")
->> testing的過程，改為計算error score與繪製ROC curve為主。
+>> testing的過程，改為計算error score與繪製ROC curve為主，使用91行被註解掉的部分的code可以獲得reconstructed image與heatmap。
 
 > [GaussianDiffusion.py](GaussianDiffusion.py "游標顯示")
 >> Diffusion Model的架構。
