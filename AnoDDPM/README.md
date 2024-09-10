@@ -9,8 +9,12 @@ AnoDDPM
 ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/AnoDDPM/pictures/diffusion_model_flow_chart.png" width=60% height=60%>
 
 ### 各檔案描述
+> [test_args](test_args "游標顯示")
+>> training及testing過程中使用的所有變數，包含epoch數、使用的添加noise方式、圖片大小等。
+
+>> 
 > [makenpy.py](makenpy.py "游標顯示")
->> 資料處理，從csv檔中讀取圖片的路徑並讀取圖片，並將所有圖片轉為後續訓練、測試使用的.npy檔，因我們的原始圖片是dicom檔，若有要讀取其他格式的圖片要修改程式碼。
+>> 我們自己新增的檔案，用來做資料處理，從csv檔中讀取圖片的路徑並讀取圖片，並將所有圖片轉為後續訓練、測試使用的.npy檔，因我們的原始圖片是dicom檔，若有要讀取其他格式的圖片要修改程式碼。
 
 > [dataset.py](dataset.py "游標顯示")
 >>設定及讀取datasets，在351行的init_datasets中可更改要使用的datasets，相較於原版的loader使用cycle並限制每個epoch train的data數量，我們有新增了一個testing_dataset_loadery在375行，使testing時會保證test完所有testing dataset中的所有data。
