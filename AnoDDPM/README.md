@@ -15,9 +15,6 @@ AnoDDPM
 > [dataset.py](dataset.py "游標顯示")
 >>設定及讀取datasets，在351行的init_datasets中可更改要使用的datasets，相較於原版的loader使用cycle並限制每個epoch train的data數量，我們有新增了一個testing_dataset_loadery在375行，使testing時會保證test完所有testing dataset中的所有data。
 
-> [detection.py](dataset.py "游標顯示")
->> 
-
 > [diffusion_training.py](diffusion_training.py "游標顯示")
 >> training的過程。
 
@@ -27,17 +24,14 @@ AnoDDPM
 > [GaussianDiffusion.py](GaussianDiffusion.py "游標顯示")
 >> Diffusion Model的架構。
 
-> [graphs.py](graphs.py "游標顯示")
->> 
-
 > [simplex.py](simplex.py "游標顯示")
->>
+>>使用simplex作為加入noise的方法時使用的相關定義與functions。
 
 > [UNet.py](UNet.py "游標顯示")
->> 
+>> UNet Model。
 
 > [helpers.py](helpers.py "游標顯示")
->>作者自定義的functions，26行的load_checkpoint與51行的load_parameters終能調整要使用哪份權重。
+>>作者自定義的functions，26行的load_checkpoint與51行的load_parameters中能調整要使用哪份權重。
 
 ### 使用方法
 > training
