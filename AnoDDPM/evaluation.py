@@ -16,53 +16,6 @@ def main():
     pass
 
 
-def heatmap(real: torch.Tensor, recon: torch.Tensor, mask, filename, save=True):
-    mse = ((recon - real).square() * 2) - 1
-    mse_threshold = mse > 0
-    mse_threshold = (mse_threshold.float() * 2) - 1
-    if save:
-        output = torch.cat((real, recon.reshape(1, *recon.shape), mse, mse_threshold, mask))
-        plt.imshow(gridify_output(output, 5)[..., 0], cmap="gray")
-        plt.axis('off')
-        plt.savefig(filename)
-        plt.clf()
-
-
-# for anomalous dataset - metric of crossover
-def dice_coeff(real: torch.Tensor, recon: torch.Tensor, real_mask: torch.Tensor, smooth=0.000001, mse=None):
-    # scale_img = lambda img: ((img + 1) * 127.5).clamp(0, 255).to(torch.uint8)
-    # real = scale_img(real.clone().detach())
-    # recon = scale_img(recon.clone().detach())
-    # real_mask = scale_img(real_mask.clone().detach())
-    if mse == None:
-        mse = (real - recon).square()
-        mse = (mse > 0.5).float()
-    intersection = torch.sum(mse * real_mask, dim=[1, 2, 3])
-    union = torch.sum(mse, dim=[1, 2, 3]) + torch.sum(real_mask, dim=[1, 2, 3])
-    dice = torch.mean((2. * intersection + smooth) / (union + smooth), dim=0)
-    return dice
-
-
-def PSNR(recon, real):
-    se = (real - recon).square()
-    mse = torch.mean(se, dim=list(range(len(real.shape))))
-    psnr = 20 * torch.log10(torch.max(real) / torch.sqrt(mse))
-    return psnr.detach().cpu().numpy()
-
-
-def SSIM(real, recon):
-    return ssim(real.detach().cpu().numpy(), recon.detach().cpu().numpy(), channel_axis=2)
-
-
-def IoU(real, recon):
-    import numpy as np
-    real = real.cpu().numpy()
-    recon = recon.cpu().numpy()
-    intersection = np.logical_and(real, recon)
-    union = np.logical_or(real, recon)
-    return np.sum(intersection) / (np.sum(union) + 1e-8)
-
-
 def precision(real_mask, recon_mask):
     TP = ((real_mask == 1) & (recon_mask == 1))
     FP = ((real_mask == 1) & (recon_mask == 0))
@@ -121,46 +74,7 @@ def testing(testing_dataset_loader, diffusion, args, ema, model):
     model.eval()
     print("set to evaluation mode")
 
-    """plt.rcParams['figure.dpi'] = 200
-    for i in [*range(100, args['sample_distance'], 100)]:
-        data = next(testing_dataset_loader)
-        if args["dataset"] == "cifar" or args["dataset"] == "carpet":
-            # cifar outputs [data,class]
-            x = data[0].to(device)
-        else:
-            x = data["image"]
-            x = x.to(device)
-
-        row_size = min(5, args['Batch_Size'])
-
-        fig, ax = plt.subplots()
-        out = diffusion.forward_backward(ema, x, see_whole_sequence="half", t_distance=i)
-        imgs = [[ax.imshow(gridify_output(x, row_size), animated=True)] for x in out]
-        ani = animation.ArtistAnimation(
-                fig, imgs, interval=200, blit=True,
-                repeat_delay=1000
-                )
-
-        #files = os.listdir(f'./diffusion-videos/ARGS={args["arg_num"]}/test-set/')
-        #ani.save(f'./diffusion-videos/ARGS={args["arg_num"]}/test-set/t={i}-attempts={len(files) + 1}.mp4')"""
-
-    #test_iters = len(list(testing_dataset_loader))
-    #print(test_iters)
-    """print("start vlb")
-    vlb = []
-    for epoch in tqdm(range(test_iters // args["Batch_Size"] + 5)):
-        data = next(testing_dataset_loader)
-        if args["dataset"] != "cifar":
-            x = data["image"]
-            x = x.to(device)
-        else:
-            # cifar outputs [data,class]
-            x = data[0].to(device)
-
-        vlb_terms = diffusion.calc_total_vlb(x, model, args)
-        vlb.append(vlb_terms)"""
-
-    psnr = []
+   
     error_scores = []
     for data in tqdm(testing_dataset_loader, desc="Processing Test Data", total = len(testing_dataset_loader)):
         #data = next(testing_dataset_loader)
@@ -174,6 +88,7 @@ def testing(testing_dataset_loader, diffusion, args, ema, model):
         #print(args["T"])
         out = diffusion.forward_backward(ema, x, see_whole_sequence=None, denoise_fn = "noise_fn", t_distance=200) #args["T"] // 2
     
+        """
         x_img = x.squeeze().cpu().detach().numpy()
         out_img = out.squeeze().cpu().detach().numpy()
         
@@ -184,57 +99,28 @@ def testing(testing_dataset_loader, diffusion, args, ema, model):
         
         fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 
-        # 显示原始图像 x
         axes[0].imshow(x_img, cmap='gray')
         axes[0].set_title('Original Image (x)')
         axes[0].axis('off')
 
-        # 显示处理后的图像 out
         axes[1].imshow(out_img, cmap='gray')
         axes[1].set_title('Processed Image (out)')
         axes[1].axis('off')
 
-
-        # 调整子图之间的间距
         plt.tight_layout()
 
-        # 显示图像
         plt.show()
+        """
         
         x_np = x.cpu().detach().numpy()
         out_np = out.cpu().detach().numpy()
 
-        # 计算逐像素的绝对值差
         error_map = np.abs(x_np - out_np)
 
-        # 求和得到误差分数
         error_score = np.sum(error_map)
-        #print(error_score)
-        #psnr.append(PSNR(out, x))
-        error_scores.append(error_score)  # 將 error_score 添加到列表中
 
+        error_scores.append(error_score) 
     return error_scores
-
-    """print(
-            f"Test set total VLB: {np.mean([i['total_vlb'].mean(dim=-1).cpu().item() for i in vlb])} +- {np.std([i['total_vlb'].mean(dim=-1).cpu().item() for i in vlb])}"
-            )
-    print(
-            f"Test set prior VLB: {np.mean([i['prior_vlb'].mean(dim=-1).cpu().item() for i in vlb])} +-"
-            f" {np.std([i['prior_vlb'].mean(dim=-1).cpu().item() for i in vlb])}"
-            )
-    print(
-            f"Test set vb @ t=200: {np.mean([i['vb'][0][199].cpu().item() for i in vlb])} "
-            f"+- {np.std([i['vb'][0][199].cpu().item() for i in vlb])}"
-            )
-    print(
-            f"Test set x_0_mse @ t=200: {np.mean([i['x_0_mse'][0][199].cpu().item() for i in vlb])} "
-            f"+- {np.std([i['x_0_mse'][0][199].cpu().item() for i in vlb])}"
-            )
-    print(
-            f"Test set mse @ t=200: {np.mean([i['mse'][0][199].cpu().item() for i in vlb])}"
-            f" +- {np.std([i['mse'][0][199].cpu().item() for i in vlb])}"
-            )
-    print(f"Test set PSNR: {np.mean(psnr)} +- {np.std(psnr)}")"""
 
 
 def main():
@@ -282,13 +168,10 @@ def main():
     error_scores = error_scores_normal + error_scores_abnormal
     labels = [0] * len(error_scores_normal) + [1] * len(error_scores_abnormal)
 
-    # 計算 ROC 曲線
     fpr, tpr, thresholds = roc_curve(labels, error_scores)
     np.savez('AnoDDPM_roc_data_e2000_t80.npz', fpr=fpr, tpr=tpr, thresholds=thresholds)
     roc_auc = auc(fpr, tpr)
     
-
-    # 繪製 ROC 曲線
     plt.figure()
     lw = 2
     plt.plot(fpr, tpr, color='darkorange',
