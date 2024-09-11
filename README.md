@@ -28,6 +28,6 @@ Result
   In addition, we also evaluated the models' ability to identify abnormal regions. We performed pixel-wise subtraction between the reconstructed image and the original image and highlighted the differences in red. The redder the area, the greater the difference. Below are three examples: the first image is a normal image, while the other two are CXRs with abnormalities.
   ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_normal.png" width=60% height=60%> 
   ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal1.png" width=60% height=60%> 
-  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal2" width=60% height=60%> 
+  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal2.png" width=60% height=60%> 
   
 
