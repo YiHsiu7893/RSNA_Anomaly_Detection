@@ -33,7 +33,7 @@ Architecture Diagram of VAE-GAN
 >> Other custom functions defined by the author.
 >> 
 > [Weights after 50 epochs of training ](https://drive.google.com/file/d/1TlYe8T2GJ6QwU5NtXP88F8b2J1Ko9we7/view?usp=sharing "游標顯示") (image size:64*64,batch size:64)
->> 太大了所以丟雲端。
+>> The file is too large, so it's uploaded to the cloud.。
 >>
 ### Usage Instructions
 > After adjusting the data path in the dataloader, run the necessary scripts for training, testing, or generating heatmaps:
@@ -49,7 +49,7 @@ Architecture Diagram of VAE-GAN
 >  ```python
 > python heatmap.py
 > ```
->  (原始的code是說用python3，但我們用python3跑不了反而是python跑得了)
+>  (The original code suggests using python3, but we found that it works with python, not python3.)
 > 
 
 
