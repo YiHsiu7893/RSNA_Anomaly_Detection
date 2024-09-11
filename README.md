@@ -32,6 +32,8 @@ Result
   
   Abnormal case
   ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal1.png" width=100% height=100%> 
-  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal2.png" width=100% height=100%> 
+  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal2.png" width=100% height=100%>   
+  
+  Here is a simple comparison:VAE-GAN has the best ability to capture anomalous areas; BiGAN produces the most consistent results when reconstructing images, but both tend to suffer from the issue of disrupted reconstruction contours. In contrast, DDPM can accurately reconstruct contours, but its drawback is that the reconstructed image is too similar to the original, making it difficult to effectively capture anomalous areas.
   
 
