@@ -1,5 +1,63 @@
 VAE-GAN
 ===
+ ### Original Paper
+> #### [Autoencoding beyond pixels using a learned similarity metric](https://arxiv.org/pdf/1512.09300.pdf "游標顯示")
+ ### Code We Used 
+> #### [VAE-GAN-PYTORCH](https://github.com/rishabhd786/VAE-GAN-PYTORCH?source=post_page-----8f9db4aeb7a2-------------------------------- "游標顯示")
+
+Architecture Diagram of VAE-GAN
+><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/VAE-GAN/pictures/VAE-GAN.png" width=60% height=60%>
+
+### 各檔案描述
+> [dataloader.py](dataloader.py "游標顯示")
+>> Handles the data, with the default set to adjust images to 64x64 in size and a batch size of 64. It reads the full path and label of the images from a CSV file. The _class CustomDataset(Dataset)_ has two options: one for reading DICOM files and another for reading PNG or JPG.
+
+>> Whether for training, testing, or generating heatmaps, the data path is modified in the dataloader.
+
+>> Format of the CSV file that stores image paths and labels:
+>> ![](pictures/dataset_csv.png)
+>> 
+> [heatmap.py](heatmap.py "游標顯示")  
+>> Generates reconstructed images and heatmaps. The path to the weights can be changed at line 18, and the path of the images to be generated must be changed in the dataloader.
+>>  
+> [main.py](main.py "游標顯示")
+>> This is the training process. The path to the weights can be changed at line 18, and the path to the training data must be changed in the dataloader.
+>> 
+> [models.py](models.py "游標顯示")
+>>  The architecture of the model.
+>> 
+> [testing.py](testing.py "游標顯示")
+>> Testing and ROC curve plotting. The path to the weights can be changed at line 20, and the path to the testing data must be changed in the dataloader.
+>> 
+>[utils.py](utils.py "游標顯示")  
+>> Other custom functions defined by the author.
+>> 
+> [Weights after 50 epochs of training ](https://drive.google.com/file/d/1TlYe8T2GJ6QwU5NtXP88F8b2J1Ko9we7/view?usp=sharing "游標顯示") (image size:64*64,batch size:64)
+>> 太大了所以丟雲端。
+>>
+### Usage Instructions
+> After adjusting the data path in the dataloader, run the necessary scripts for training, testing, or generating heatmaps:
+> 
+> ```python
+> python main.py
+> ```
+> 
+> ```python
+> python testing.py
+> ```
+> 
+>  ```python
+> python heatmap.py
+> ```
+>  (原始的code是說用python3，但我們用python3跑不了反而是python跑得了)
+> 
+
+
+
+
+
+VAE-GAN(中文版)
+===
  ### 原始的paper
 > #### [Autoencoding beyond pixels using a learned similarity metric](https://arxiv.org/pdf/1512.09300.pdf "游標顯示")
  ### 我們用的code  
