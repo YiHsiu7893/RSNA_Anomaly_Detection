@@ -28,10 +28,10 @@ Result
   In addition, we also evaluated the models' ability to identify abnormal regions. We performed pixel-wise subtraction between the reconstructed image and the original image and highlighted the differences in red. The redder the area, the greater the difference. Below are three examples: the first image is a normal image, while the other two are CXRs with abnormalities.  
   
 - Normal case
-  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_normal.png" width=80% height=80%> 
+  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_normal.png" width=75% height=75%> 
   
 - Abnormal case
-  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal1.png" width=80% height=80%> 
-  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal2.png" width=80% height=80%>   
+  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal1.png" width=75% height=75%> 
+  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/compare_abnormal2.png" width=75% height=75%>   
 
 Here is a simple comparison:VAE-GAN has the best ability to capture anomalous areas; BiGAN produces the most consistent results when reconstructing images, but both tend to suffer from the issue of disrupted reconstruction contours. In contrast, DDPM can accurately reconstruct contours, but its drawback is that the reconstructed image is too similar to the original, making it difficult to effectively capture anomalous areas.
