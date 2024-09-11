@@ -8,7 +8,7 @@ VAE-GAN
 Architecture Diagram of VAE-GAN
 ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/VAE-GAN/pictures/VAE-GAN.png" width=60% height=60%>
 
-### 各檔案描述
+### File Descriptions
 > [dataloader.py](dataloader.py "游標顯示")
 >> Handles the data, with the default set to adjust images to 64x64 in size and a batch size of 64. It reads the full path and label of the images from a CSV file. The _class CustomDataset(Dataset)_ has two options: one for reading DICOM files and another for reading PNG or JPG.
 
