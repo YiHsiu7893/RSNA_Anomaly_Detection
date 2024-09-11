@@ -24,5 +24,6 @@ Dataset
 Result
 ---
   We used the L1 norm between the reconstructed image and the original image as the error score and plotted the ROC curve based on it.Below are the ROC curves for the four methods.  
+  ><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/pictures/ROC_curve.png" width=60% height=60%>
   
 
