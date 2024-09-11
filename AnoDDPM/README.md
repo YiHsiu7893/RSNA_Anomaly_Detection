@@ -1,5 +1,58 @@
 AnoDDPM
 ===
+ ### Original Paper
+> #### [AnoDDPM: Anomaly Detection with Denoising Diffusion Probabilistic Models using Simplex Noise](https://ieeexplore.ieee.org/document/9857019 "游標顯示")
+ ### Code We Used  
+> #### [AnoDDPM](https://github.com/Julian-Wyatt/AnoDDPM "游標顯示")
+
+### Architecture Diagram of the Diffusion Model
+><img src="https://github.com/YiHsiu7893/RSNA_Anomaly_Detection/blob/main/AnoDDPM/pictures/diffusion_model_flow_chart.png" width=60% height=60%>
+
+### File Descriptions
+> [test_args](test_args "游標顯示")
+>> All variables used during the training and testing process, including the number of epochs, the method of adding noise, image size, etc.
+
+>> 
+> [makenpy.py](makenpy.py "游標顯示")
+>> A custom file we added for data processing. It reads image paths from a CSV file, reads the images, and converts them into .npy files for subsequent training and testing. Since our original images are in DICOM format, the code needs to be modified if you want to read other formats.
+
+> [dataset.py](dataset.py "游標顯示")
+>>Sets up and reads the datasets. You can change the datasets used in the init_datasets at line 351. Compared to the original loader, which uses a cycle and limits the amount of data trained per epoch, we added a testing_dataset_loader at line 375 to ensure that all data in the testing dataset is tested.
+
+> [diffusion_training.py](diffusion_training.py "游標顯示")
+>> The training process.
+
+> [evaluation.py](evaluation.py "游標顯示")
+>> The testing process, modified mainly to calculate the error score and plot the ROC curve. You can use the code in the commented-out section at line 91 to obtain the reconstructed images and heatmaps.
+
+> [GaussianDiffusion.py](GaussianDiffusion.py "游標顯示")
+>> The architecture of the Diffusion Model.
+
+> [simplex.py](simplex.py "游標顯示")
+>> Definitions and functions related to using simplex noise as the method for adding noise.
+> [UNet.py](UNet.py "游標顯示")
+>> The UNet Model.
+
+> [helpers.py](helpers.py "游標顯示")
+>> Custom functions defined by the author. In the load_checkpoint at line 26 and load_parameters at line 51, you can adjust which weights to use.
+
+### Usage Instructions
+> training
+>>Use python diffusion_training.py [args number], for example:
+>> 
+>> ```python
+>> python diffusion_training.py 28
+>> ```
+> testing
+>>Use python evaluation.py [args number], for example:
+>> ```python
+>> python evaluation.py 28
+>> ```
+>  (The original code suggests using python3, but we found that it only works with python, not python3.)
+> 
+
+AnoDDPM(中文版)
+===
  ### 原始的paper
 > #### [AnoDDPM: Anomaly Detection with Denoising Diffusion Probabilistic Models using Simplex Noise](https://ieeexplore.ieee.org/document/9857019 "游標顯示")
  ### 我們用的code  
